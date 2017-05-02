@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Providers.Boot", "Net.Chdk.Providers.Boot.csproj", "{0396213C-0A79-44D3-80CF-93EF10F3D331}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Net.Chdk.Shared", "..\..\..\Net.Chdk.Core\src\Net.Chdk.Shared\Net.Chdk.Shared.shproj", "{83C6A77C-3286-4F5F-B628-3B971097AD05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Providers.Boot.Core", "..\..\..\Net.Chdk.Providers.Boot.Core\src\Net.Chdk.Providers.Boot.Core\Net.Chdk.Providers.Boot.Core.csproj", "{4E4FA15A-4A88-4CAF-A8E1-FC507177EAD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Chdk.Core", "..\..\..\Net.Chdk.Core\src\Net.Chdk.Core\Net.Chdk.Core.csproj", "{6C183A9C-30C1-47E5-9016-48890EC8ABA2}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\Net.Chdk.Core\src\Net.Chdk.Shared\Net.Chdk.Shared.projitems*{0396213c-0a79-44d3-80cf-93ef10f3d331}*SharedItemsImports = 4
+		..\..\..\Net.Chdk.Core\src\Net.Chdk.Shared\Net.Chdk.Shared.projitems*{4e4fa15a-4a88-4caf-a8e1-fc507177ead4}*SharedItemsImports = 4
+		..\..\..\Net.Chdk.Core\src\Net.Chdk.Shared\Net.Chdk.Shared.projitems*{6c183a9c-30c1-47e5-9016-48890ec8aba2}*SharedItemsImports = 4
+		..\..\..\Net.Chdk.Core\src\Net.Chdk.Shared\Net.Chdk.Shared.projitems*{83c6a77c-3286-4f5f-b628-3b971097ad05}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0396213C-0A79-44D3-80CF-93EF10F3D331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0396213C-0A79-44D3-80CF-93EF10F3D331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0396213C-0A79-44D3-80CF-93EF10F3D331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0396213C-0A79-44D3-80CF-93EF10F3D331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4FA15A-4A88-4CAF-A8E1-FC507177EAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4FA15A-4A88-4CAF-A8E1-FC507177EAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4FA15A-4A88-4CAF-A8E1-FC507177EAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4FA15A-4A88-4CAF-A8E1-FC507177EAD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C183A9C-30C1-47E5-9016-48890EC8ABA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
