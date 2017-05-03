@@ -34,24 +34,26 @@ namespace Net.Chdk.Providers.Boot
 
         #region Boot
 
-        private const string BootInfoFileName = "boot.json";
+        private const string DataPath = "Data";
+        private const string BootDataFileName = "boot.json";
 
-        private sealed class BootInfo
+        private sealed class BootData
         {
             public string FileName { get; set; }
             public Dictionary<string, Dictionary<string, string>> Strings { get; set; }
         }
 
-        private readonly Lazy<BootInfo> boot = new Lazy<BootInfo>(GetBoot);
+        private readonly Lazy<BootData> boot = new Lazy<BootData>(GetBoot);
 
-        private BootInfo Boot => boot.Value;
+        private BootData Boot => boot.Value;
 
-        private static BootInfo GetBoot()
+        private static BootData GetBoot()
         {
-            using (var reader = File.OpenText(BootInfoFileName))
+            var filePath = Path.Combine(DataPath, BootDataFileName);
+            using (var reader = File.OpenText(filePath))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                return JsonSerializer.CreateDefault(Settings).Deserialize<BootInfo>(jsonReader);
+                return JsonSerializer.CreateDefault(Settings).Deserialize<BootData>(jsonReader);
             }
         }
 
