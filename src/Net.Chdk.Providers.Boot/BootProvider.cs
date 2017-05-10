@@ -29,6 +29,8 @@ namespace Net.Chdk.Providers.Boot
         }
 
         public string FileName => Boot.FileName;
+        public int[][] Offsets => Boot.Offsets;
+        public byte[] Prefix => Boot.Prefix;
 
         #endregion
 
@@ -41,6 +43,8 @@ namespace Net.Chdk.Providers.Boot
         {
             public string FileName { get; set; }
             public Dictionary<string, Dictionary<string, string>> Strings { get; set; }
+            public int[][] Offsets { get; set; }
+            public byte[] Prefix { get; set; }
         }
 
         private readonly Lazy<BootData> boot = new Lazy<BootData>(GetBoot);
