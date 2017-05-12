@@ -62,9 +62,9 @@
     <Compile Include="ServiceCollectionExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Net.Chdk.Core\src\Net.Chdk.Core\Net.Chdk.Core.csproj">
-      <Project>{6C183A9C-30C1-47E5-9016-48890EC8ABA2}</Project>
-      <Name>Net.Chdk.Core</Name>
+    <ProjectReference Include="..\..\..\Net.Chdk.Json\src\Net.Chdk.Json\Net.Chdk.Json.csproj">
+      <Project>{bc3c0d74-5a68-4791-be4b-8b2bc724c0ec}</Project>
+      <Name>Net.Chdk.Json</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Net.Chdk.Providers.Boot.Core\src\Net.Chdk.Providers.Boot.Core\Net.Chdk.Providers.Boot.Core.csproj">
       <Project>{4e4fa15a-4a88-4caf-a8e1-fc507177ead4}</Project>
