@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootProvider.cs" />
+    <Compile Include="BootProviderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptProvider.cs" />
     <Compile Include="ServiceCollectionExtensions.cs" />
