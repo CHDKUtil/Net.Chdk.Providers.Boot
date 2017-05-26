@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="BootProvider.cs" />
     <Compile Include="BootProviderBase.cs" />
+    <Compile Include="BootProviderResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptProvider.cs" />
     <Compile Include="ServiceCollectionExtensions.cs" />
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\..\..\Net.Chdk.Providers.Boot.Core\src\Net.Chdk.Providers.Boot.Core\Net.Chdk.Providers.Boot.Core.csproj">
       <Project>{4e4fa15a-4a88-4caf-a8e1-fc507177ead4}</Project>
       <Name>Net.Chdk.Providers.Boot.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Net.Chdk.Providers.Category.Core\src\Net.Chdk.Providers.Category.Core\Net.Chdk.Providers.Category.Core.csproj">
+      <Project>{05B4FC36-AB60-48A6-A12C-0D8BB73843DD}</Project>
+      <Name>Net.Chdk.Providers.Category.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
