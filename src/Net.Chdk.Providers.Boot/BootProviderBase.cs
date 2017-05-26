@@ -33,6 +33,19 @@ namespace Net.Chdk.Providers.Boot
 
         #endregion
 
+        #region Serializer
+
+        private static readonly Lazy<JsonSerializer> serializer = new Lazy<JsonSerializer>(GetSerializer);
+
+        private static JsonSerializer Serializer => serializer.Value;
+
+        private static JsonSerializer GetSerializer()
+        {
+            return JsonSerializer.CreateDefault();
+        }
+
+        #endregion
+
         #region Data
 
         internal abstract class DataBase
@@ -55,7 +68,7 @@ namespace Net.Chdk.Providers.Boot
             using (var reader = File.OpenText(filePath))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                return JsonSerializer.CreateDefault(Settings).Deserialize<TData>(jsonReader);
+                return Serializer.Deserialize<TData>(jsonReader);
             }
         }
 
