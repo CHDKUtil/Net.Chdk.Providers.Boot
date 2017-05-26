@@ -22,12 +22,16 @@ namespace Net.Chdk.Providers.Boot
 
         #endregion
 
+        #region Public Methods
+
         public IDictionary<int, byte[]> GetBytes(string fileSystem)
         {
             Dictionary<int, byte[]> bytes;
             Bytes.TryGetValue(fileSystem, out bytes);
             return bytes;
         }
+
+        #endregion
 
         #region Data
 
