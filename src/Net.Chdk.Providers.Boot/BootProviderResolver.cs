@@ -1,4 +1,5 @@
-﻿using Net.Chdk.Providers.Category;
+﻿using Microsoft.Extensions.Logging;
+using Net.Chdk.Providers.Category;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,14 +11,16 @@ namespace Net.Chdk.Providers.Boot
         #region Fields
 
         private ICategoryProvider CategoryProvider { get; }
+        private ILoggerFactory LoggerFactory { get; }
 
         #endregion
 
         #region Constructor
 
-        public BootProviderResolver(ICategoryProvider categoryProvider)
+        public BootProviderResolver(ICategoryProvider categoryProvider, ILoggerFactory loggerFactory)
         {
             CategoryProvider = categoryProvider;
+            LoggerFactory = loggerFactory;
 
             providers = new Lazy<Dictionary<string, IBootProvider>>(GetProviders);
         }
@@ -52,9 +55,9 @@ namespace Net.Chdk.Providers.Boot
                 .ToDictionary(c => c, CreateBootProvider);
         }
 
-        private static IBootProvider CreateBootProvider(string categoryName)
+        private IBootProvider CreateBootProvider(string categoryName)
         {
-            return new BootProvider(categoryName);
+            return new BootProvider(categoryName, LoggerFactory);
         }
 
         #endregion

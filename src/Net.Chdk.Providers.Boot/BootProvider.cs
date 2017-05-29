@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.Extensions.Logging;
+using System.IO;
 using System.Linq;
 
 namespace Net.Chdk.Providers.Boot
@@ -13,7 +14,8 @@ namespace Net.Chdk.Providers.Boot
 
         #region Constructor
 
-        public BootProvider(string categoryName)
+        public BootProvider(string categoryName, ILoggerFactory loggerFactory)
+            : base(loggerFactory.CreateLogger<BootProvider>())
         {
             CategoryName = categoryName;
         }

@@ -1,4 +1,5 @@
-﻿using Net.Chdk.Json;
+﻿using Microsoft.Extensions.Logging;
+using Net.Chdk.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,18 @@ namespace Net.Chdk.Providers.Boot
     abstract class BootProvider<TData>
         where TData : BootProvider<TData>.DataBase
     {
+        #region Fields
+
+        private ILogger Logger { get; }
+
+        #endregion
+
         #region Constructor
 
-        protected BootProvider()
+        protected BootProvider(ILogger logger)
         {
+            Logger = logger;
+
             data = new Lazy<TData>(GetData);
             bytes = new Lazy<Dictionary<string, Dictionary<int, byte[]>>>(GetBytes);
             files = new Lazy<Dictionary<string, byte[]>>(DoGetFiles);
