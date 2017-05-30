@@ -8,7 +8,7 @@ namespace Net.Chdk.Providers.Boot
     {
         #region Constants
 
-        private const string CategoryPath = "Category";
+        private const string DataFileName = "boot.json";
 
         #endregion
 
@@ -40,9 +40,10 @@ namespace Net.Chdk.Providers.Boot
 
         private string CategoryName { get; }
 
-        protected override string DataPath => Path.Combine(base.DataPath, CategoryPath, CategoryName);
-
-        protected override string DataFileName => "boot.json";
+        protected override string GetFilePath()
+        {
+            return Path.Combine(Directories.Data, Directories.Category, CategoryName, DataFileName);
+        }
 
         #endregion
     }

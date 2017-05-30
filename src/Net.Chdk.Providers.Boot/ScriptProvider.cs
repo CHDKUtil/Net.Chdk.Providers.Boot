@@ -1,10 +1,17 @@
 ﻿using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Net.Chdk.Providers.Boot
 {
     sealed class ScriptProvider : BootProvider<ScriptProvider.ScriptData>, IScriptProvider
     {
+        #region Constants
+
+        private const string DataFileName = "script.json";
+
+        #endregion
+
         #region Constructor
 
         public ScriptProvider(ILoggerFactory loggerFactory)
@@ -29,7 +36,10 @@ namespace Net.Chdk.Providers.Boot
         {
         }
 
-        protected override string DataFileName => "script.json";
+        protected override string GetFilePath()
+        {
+            return Path.Combine(Directories.Data, DataFileName);
+        }
 
         #endregion
     }
