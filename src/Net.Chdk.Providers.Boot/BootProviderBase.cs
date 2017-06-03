@@ -22,6 +22,13 @@ namespace Net.Chdk.Providers.Boot
 
         #region Public Methods
 
+        public uint GetBlockSize(string fileSystem)
+        {
+            uint size;
+            Data.Sizes.TryGetValue(fileSystem, out size);
+            return size;
+        }
+
         public IDictionary<int, byte[]> GetBytes(string fileSystem)
         {
             Dictionary<int, byte[]> bytes;
@@ -35,6 +42,7 @@ namespace Net.Chdk.Providers.Boot
 
         internal abstract class DataBase
         {
+            public Dictionary<string, uint> Sizes { get; set; }
             public Dictionary<string, Dictionary<string, string>> Strings { get; set; }
             public Dictionary<string, string> Files { get; set; }
         }
