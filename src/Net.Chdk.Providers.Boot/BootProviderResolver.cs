@@ -40,7 +40,7 @@ namespace Net.Chdk.Providers.Boot
 
         protected override IEnumerable<string> GetNames()
         {
-            return CategoryProvider.GetCategories();
+            return CategoryProvider.GetCategoryNames();
         }
 
         protected override IBootProvider CreateProvider(string categoryName)
