@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Net.Chdk.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +36,15 @@ namespace Net.Chdk.Providers.Boot
             Dictionary<int, byte[]> bytes;
             Bytes.TryGetValue(fileSystem, out bytes);
             return bytes;
+        }
+
+        #endregion
+
+        #region Converters
+
+        protected override IEnumerable<JsonConverter> GetConverters()
+        {
+            yield return new HexStringJsonConverter();
         }
 
         #endregion
