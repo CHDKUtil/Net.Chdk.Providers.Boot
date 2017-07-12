@@ -26,15 +26,13 @@ namespace Net.Chdk.Providers.Boot
 
         public uint GetBlockSize(string fileSystem)
         {
-            uint size;
-            Data.Sizes.TryGetValue(fileSystem, out size);
+            Data.Sizes.TryGetValue(fileSystem, out uint size);
             return size;
         }
 
         public IDictionary<int, byte[]> GetBytes(string fileSystem)
         {
-            Dictionary<int, byte[]> bytes;
-            Bytes.TryGetValue(fileSystem, out bytes);
+            Bytes.TryGetValue(fileSystem, out Dictionary<int, byte[]> bytes);
             return bytes;
         }
 
