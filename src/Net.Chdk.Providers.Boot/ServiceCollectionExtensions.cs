@@ -4,10 +4,10 @@ namespace Net.Chdk.Providers.Boot
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddBootProviderResolver(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddBootProvider(this IServiceCollection serviceCollection)
         {
             return serviceCollection
-                .AddSingleton<IBootProviderResolver, BootProviderResolver>();
+                .AddSingleton<IBootProvider, BootProvider>();
         }
 
         public static IServiceCollection AddScriptProvider(this IServiceCollection serviceCollection)

@@ -1,48 +1,66 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.IO;
-using System.Linq;
+using Net.Chdk.Providers.Category;
+using System.Collections.Generic;
 
 namespace Net.Chdk.Providers.Boot
 {
-    sealed class BootProvider : BootProvider<BootProvider.BootData>, IBootProvider
+    sealed class BootProvider : ProviderResolver<IInnerBootProvider>, IBootProvider
     {
-        #region Constants
+        #region Fields
 
-        private const string DataFileName = "boot.json";
+        private ICategoryProvider CategoryProvider { get; }
 
         #endregion
 
         #region Constructor
 
-        public BootProvider(string categoryName, ILoggerFactory loggerFactory)
-            : base(loggerFactory.CreateLogger<BootProvider>())
+        public BootProvider(ICategoryProvider categoryProvider, ILoggerFactory loggerFactory)
+            : base(loggerFactory)
         {
-            CategoryName = categoryName;
+            CategoryProvider = categoryProvider;
         }
 
         #endregion
 
         #region IBootProvider Members
 
-        public string FileName => Data.Files.First().Key;
-        public int[][] Offsets => Data.Offsets;
-        public byte[] Prefix => Data.Prefix;
+        public string GetFileName(string categoryName)
+        {
+            return Providers[categoryName].FileName;
+        }
+
+        public int[][] GetOffsets(string categoryName)
+        {
+            return Providers[categoryName].Offsets;
+        }
+
+        public byte[] GetPrefix(string categoryName)
+        {
+            return Providers[categoryName].Prefix;
+        }
+
+        public uint GetBlockSize(string categoryName, string fileSystem)
+        {
+            return Providers[categoryName].GetBlockSize(fileSystem);
+        }
+
+        public IDictionary<int, byte[]> GetBytes(string categoryName, string fileSystem)
+        {
+            return Providers[categoryName].GetBytes(fileSystem);
+        }
 
         #endregion
 
-        #region Data
+        #region Providers
 
-        internal sealed class BootData : DataBase
+        protected override IEnumerable<string> GetNames()
         {
-            public int[][] Offsets { get; set; }
-            public byte[] Prefix { get; set; }
+            return CategoryProvider.GetCategoryNames();
         }
 
-        private string CategoryName { get; }
-
-        protected override string GetFilePath()
+        protected override IInnerBootProvider CreateProvider(string categoryName)
         {
-            return Path.Combine(Directories.Data, Directories.Category, CategoryName, DataFileName);
+            return new InnerBootProvider(categoryName, LoggerFactory);
         }
 
         #endregion
