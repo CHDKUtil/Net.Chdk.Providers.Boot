@@ -37,11 +37,19 @@
 
   <ItemGroup>
     <PackageReference Include="microsoft.extensions.dependencyinjection.abstractions" Version="1.1.1" />
-    <PackageReference Include="net.chdk.core" Version="0.2.0-alpha" />
-    <PackageReference Include="net.chdk.json" Version="0.1.0-alpha" />
-    <PackageReference Include="net.chdk.providers.base" Version="0.1.0-alpha" />
-    <PackageReference Include="net.chdk.providers.boot.core" Version="0.1.0-alpha" />
-    <PackageReference Include="net.chdk.providers.category.core" Version="0.1.0-alpha" />
+    <PackageReference Include="Net.Chdk.Core" Version="0.2.0-alpha">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Net.Chdk.Json" Version="0.1.0-alpha">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Net.Chdk.Providers.Base" Version="0.1.0-alpha">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Net.Chdk.Providers.Boot.Core" Version="0.1.0-alpha" />
+    <PackageReference Include="Net.Chdk.Providers.Category.Core" Version="0.1.0-alpha">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
