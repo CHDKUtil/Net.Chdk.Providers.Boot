@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Net.Chdk.Providers.Category;
+using Net.Chdk.Providers.Product;
 using System.Collections.Generic;
 
 namespace Net.Chdk.Providers.Boot
@@ -8,16 +8,16 @@ namespace Net.Chdk.Providers.Boot
     {
         #region Fields
 
-        private ICategoryProvider CategoryProvider { get; }
+        private IProductProvider ProductProvider { get; }
 
         #endregion
 
         #region Constructor
 
-        public BootProvider(ICategoryProvider categoryProvider, ILoggerFactory loggerFactory)
+        public BootProvider(IProductProvider productProvider, ILoggerFactory loggerFactory)
             : base(loggerFactory)
         {
-            CategoryProvider = categoryProvider;
+            ProductProvider = productProvider;
         }
 
         #endregion
@@ -55,7 +55,7 @@ namespace Net.Chdk.Providers.Boot
 
         protected override IEnumerable<string> GetNames()
         {
-            return CategoryProvider.GetCategoryNames();
+            return ProductProvider.GetCategoryNames();
         }
 
         protected override IInnerBootProvider CreateProvider(string categoryName)
